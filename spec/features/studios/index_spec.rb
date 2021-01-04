@@ -16,24 +16,24 @@ describe "studio index page" do
     movie_6 = Movie.create!(title: "Inception", creation_year: 2010, genre: "Action", studio_id: "#{studio_3
       .id}")
 
-    visit '/studio'
+    visit '/studios'
 
     within ("#studio-#{studio_1.id}") do
       expect(page).to have_content(studio_1.name)
-      expect(page).to have_content(movie_1.name)
-      expect(page).to have_content(movie_2.name)
+      expect(page).to have_content(movie_1.title)
+      expect(page).to have_content(movie_2.title)
     end
 
     within ("#studio-#{studio_2.id}") do
       expect(page).to have_content(studio_2.name)
-      expect(page).to have_content(movie_3.name)
-      expect(page).to have_content(movie_4.name)
+      expect(page).to have_content(movie_3.title)
+      expect(page).to have_content(movie_4.title)
     end
 
     within ("#studio-#{studio_3.id}") do
       expect(page).to have_content(studio_3.name)
-      expect(page).to have_content(movie_5.name)
-      expect(page).to have_content(movie_6.name)
+      expect(page).to have_content(movie_5.title)
+      expect(page).to have_content(movie_6.title)
     end
   end
 end
